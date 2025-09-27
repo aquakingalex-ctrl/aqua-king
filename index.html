@@ -9,166 +9,158 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #0b1e3d, #12476b);
       color: #f0f0f0;
       text-align: center;
-      background: linear-gradient(135deg, #0b1e3d, #12476b);
       overflow-x: hidden;
     }
 
-    /* Tabs Menu */
+    /* Modern Tabs Navigation (Bottom Bar) */
     .tabs {
       display: flex;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      margin-top: 10px;
-      border-bottom: 2px solid rgba(0,229,255,0.3);
-      padding-right: 20px;
+      justify-content: space-around;
+      align-items: center;
+      background: rgba(0,0,0,0.35);
+      border-top: 1px solid rgba(0,229,255,0.25);
+      box-shadow: 0 -2px 12px rgba(0,229,255,0.2);
+      position: sticky;
+      bottom: 0;
+      z-index: 100;
     }
     .tabs button {
-      background: rgba(0,0,0,0.35);
+      flex: 1;
+      background: none;
       border: none;
-      padding: 12px 18px;
-      margin: 0 3px;
-      border-radius: 12px 12px 0 0;
-      color: #f0f0f0;
-      font-size: 16px;
+      padding: 12px 6px;
+      color: #aaa;
+      font-size: 14px;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       transition: all 0.3s ease;
     }
-    .tabs button.active {
-      background: rgba(0,229,255,0.2);
-      box-shadow: 0 0 15px #00e5ff;
+    .tabs button i {
+      font-size: 20px;
+      margin-bottom: 4px;
+      transition: transform 0.3s;
     }
-    .tabs button:hover { transform: scale(1.05); }
+    .tabs button.active {
+      color: #00e5ff;
+      text-shadow: 0 0 8px #00e5ff;
+    }
+    .tabs button.active i {
+      transform: scale(1.2);
+      color: #00e5ff;
+    }
+    .tabs button:hover { color: #00e5ff; }
+
+    /* Responsive Behavior */
+    @media (max-width: 600px) {
+      .tabs button span { display: none; } /* إخفاء النص على الموبايل */
+      .tabs button i { font-size: 22px; margin: 0; }
+    }
 
     /* Tabs Content */
     .tab-content {
       display: none;
-      padding: 30px 15px;
-      animation: fadeInUp 0.8s ease;
+      padding: 25px 15px;
+      animation: fadeInUp 0.6s ease;
     }
     .tab-content.active { display: block; }
 
-    /* Hero */
+    /* Hero Section */
     .hero {
-      position: relative;
       height: 70vh;
-      background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center center/cover;
+      background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      z-index: 1;
+      position: relative;
     }
     .hero::after {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,30,0.6);
-      z-index: 0;
+      inset: 0;
+      background: rgba(0,0,40,0.6);
     }
-    .hero-content { position: relative; z-index: 2; }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
     .hero img.logo {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 20px;
-      object-fit: cover;
       box-shadow: 0 0 20px #00e5ff;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       animation: float 5s ease-in-out infinite;
     }
     .hero h1 {
-      font-size: 32px;
-      margin: 8px 0;
-      text-shadow: 0 0 12px #00e5ff;
+      font-size: 30px;
       color: #00e5ff;
+      text-shadow: 0 0 12px #00e5ff;
+      margin: 6px 0;
     }
     .hero h2 {
       font-size: 18px;
       font-weight: 300;
       color: #d0d0d0;
-      text-shadow: 0 0 10px rgba(255,255,255,0.6);
     }
 
-    /* Address & Map */
-    .address-map {
-      max-width: 900px;
-      margin: 20px auto 40px;
-      padding: 15px;
+    /* Sections Styling */
+    .default-box, .address-map, .social-contact-box {
       background: rgba(255,255,255,0.05);
-      border-radius: 14px;
       border: 1px solid rgba(0,229,255,0.3);
-      box-shadow: 0 0 15px rgba(0,229,255,0.25);
-      font-size: 16px;
-      color: #d0d0d0;
+      padding: 18px;
+      border-radius: 14px;
+      max-width: 850px;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(0,229,255,0.2);
+      color: #ddd;
     }
-    .address-map h3 {
+    .address-map h3, .social-contact-box h3 {
       color: #00e5ff;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
       text-shadow: 0 0 8px #00e5ff;
     }
     .map-box iframe {
       width: 100%;
-      height: 300px;
-      border: 0;
+      height: 280px;
+      border: none;
       border-radius: 12px;
-      box-shadow: 0 0 20px #00e5ff;
     }
 
-    /* Default Box */
-    .default-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(0,229,255,0.3);
-      padding: 20px;
-      border-radius: 14px;
-      max-width: 700px;
-      margin: auto;
-      font-size: 16px;
-      color: #d0d0d0;
-      text-shadow: 0 0 5px rgba(0,229,255,0.3);
-      box-shadow: 0 0 15px rgba(0,229,255,0.2);
-    }
-
-    /* Social & Contact */
-    .social-contact-box {
-      max-width: 900px;
-      margin: auto;
-      padding: 15px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 14px;
-      border: 1px solid rgba(0,229,255,0.3);
-      box-shadow: 0 0 15px rgba(0,229,255,0.25);
-    }
-    .social-contact-box h3 {
-      color: #00e5ff;
-      margin-bottom: 15px;
-      text-shadow: 0 0 8px #00e5ff;
-    }
+    /* Social & Contact (رجعناها زي ما كانت) */
     .social-links {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 12px;
-      margin-bottom: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
     }
     .social-links a {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 12px;
-      border-radius: 12px;
+      padding: 14px;
+      border-radius: 14px;
       background: rgba(0,0,0,0.4);
       text-decoration: none;
       color: #fff;
-      font-size: 16px;
+      font-size: 18px;
       border: 1px solid rgba(255,255,255,0.1);
       transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(0,0,0,0.5);
     }
     .social-links a:hover {
-      transform: translateY(-5px) scale(1.05);
+      transform: translateY(-6px) scale(1.05);
       background: rgba(0,229,255,0.15);
-      box-shadow: 0 0 15px #00e5ff;
+      box-shadow: 0 0 18px #00e5ff;
     }
-    .social-links i { font-size: 20px; margin-left: 6px; }
+    .social-links i { font-size: 22px; margin-left: 8px; }
     .whatsapp i { color: #25d366; }
     .facebook i { color: #1877f2; }
     .instagram i { color: #e4405f; }
@@ -178,89 +170,84 @@
     .phone-card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(0,229,255,0.3);
-      padding: 12px 15px;
-      border-radius: 12px;
+      padding: 14px 20px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 15px rgba(0,229,255,0.15);
+      font-size: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 18px rgba(0,229,255,0.15);
+      transition: all 0.3s ease;
       direction: ltr;
     }
-    .phone-card:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 0 18px #00e5ff;
+    .phone-card i { 
+      margin-right: 10px;
+      margin-left: 0; 
+      color: #00e5ff; 
+      text-shadow: 0 0 12px #00e5ff; 
     }
-    .phone-card i { margin-right: 8px; color: #00e5ff; }
     .phone-card span { color: #fff; font-weight: 500; }
 
-    /* Animations */
-    @keyframes fadeInUp { from {opacity: 0; transform: translateY(40px);} to {opacity: 1; transform: translateY(0);} }
-    @keyframes float { 0%,100% {transform: translateY(0);} 50% {transform: translateY(-12px);} }
-
     footer {
-      background: rgba(0,0,20,0.85);
+      background: rgba(0,0,20,0.9);
       padding: 15px;
       font-size: 12px;
       color: #aaa;
-      text-align: center;
-      margin-top: 30px;
-      border-top: 1px solid rgba(0,229,255,0.3);
+      margin-top: 25px;
     }
-    footer .copyright { font-weight: bold; color: #00e5ff; }
+    footer span { color: #00e5ff; font-weight: bold; }
+
+    /* Animations */
+    @keyframes fadeInUp { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+    @keyframes float { 0%,100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
   </style>
 </head>
 <body>
 
   <!-- Tabs -->
   <div class="tabs">
-    <button class="tab-link active" data-tab="home">الرئيسية</button>
-    <button class="tab-link" data-tab="products">المنتجات</button>
-    <button class="tab-link" data-tab="offers">العروض</button>
-    <button class="tab-link" data-tab="contact">تواصل معنا</button>
+    <button class="tab-link active" data-tab="home"><i class="fas fa-home"></i><span>الرئيسية</span></button>
+    <button class="tab-link" data-tab="products"><i class="fas fa-boxes-stacked"></i><span>المنتجات</span></button>
+    <button class="tab-link" data-tab="offers"><i class="fas fa-tags"></i><span>العروض</span></button>
+    <button class="tab-link" data-tab="contact"><i class="fas fa-phone"></i><span>تواصل معنا</span></button>
   </div>
 
-  <!-- Tabs Content -->
+  <!-- Content -->
   <div id="home" class="tab-content active">
     <div class="hero">
       <div class="hero-content">
-        <img src="https://drive.google.com/thumbnail?id=1an5RVk6cuxfm7uCgoScq-g5yNYXJ3VE1&sz=w1000" alt="AQUA KING Logo" class="logo">
+        <img src="https://drive.google.com/thumbnail?id=1an5RVk6cuxfm7uCgoScq-g5yNYXJ3VE1&sz=w1000" alt="Logo" class="logo">
         <h1>AQUA KING</h1>
         <h2>اكوا كينج لمستلزمات حمامات السباحة</h2>
       </div>
     </div>
 
-    <section class="address-map">
+    <div class="address-map">
       <h3>📍 العنوان</h3>
       <p>ك 39 طريق إسكندرية – مطروح، بحري<br>بعد قرية كرير لاجون – برج العرب</p>
       <div class="map-box">
-        <!-- لينك Google Maps شغال -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27601.23461070638!2d29.566!3d30.9847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDU5JzA2LjIiTiAyOcKwMzUnMDAuMCJF!5e0!3m2!1sar!2seg!4v1699999999999" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18..." allowfullscreen></iframe>
       </div>
-    </section>
+    </div>
   </div>
 
   <div id="products" class="tab-content">
-    <section>
+    <div class="default-box">
       <h3>المنتجات</h3>
-      <div class="default-box">
-        <p>لا يوجد منتجات حالياً – ترقبوا الجديد قريباً.</p>
-      </div>
-    </section>
+      <p>لا يوجد منتجات حالياً – ترقبوا الجديد قريباً.</p>
+    </div>
   </div>
 
   <div id="offers" class="tab-content">
-    <section>
-      <h3>العروض </h3>
-      <div class="default-box">
-        <p>لا يوجد عروض حالياً – سيتم الإعلان قريباً.</p>
-      </div>
-    </section>
+    <div class="default-box">
+      <h3>العروض</h3>
+      <p>لا يوجد عروض حالياً – سيتم الإعلان قريباً.</p>
+    </div>
   </div>
 
   <div id="contact" class="tab-content">
-    <section class="social-contact-box">
+    <div class="social-contact-box">
       <h3>تواصل معنا</h3>
       <div class="social-links">
         <a class="whatsapp" href="https://wa.me/201026908041" target="_blank"><i class="fab fa-whatsapp"></i>واتساب</a>
@@ -273,11 +260,11 @@
         <div class="phone-card"><i class="fas fa-phone"></i><span>01026908041</span></div>
         <div class="phone-card"><i class="fas fa-phone"></i><span>01062701079</span></div>
       </div>
-    </section>
+    </div>
   </div>
 
   <footer>
-    <p class="copyright">© 2025 AQUA KING. جميع الحقوق محفوظة.</p>
+    <p>© 2025 <span>AQUA KING</span>. جميع الحقوق محفوظة.</p>
   </footer>
 
   <script>
@@ -294,6 +281,5 @@
       });
     });
   </script>
-
 </body>
 </html>
