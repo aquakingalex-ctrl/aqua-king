@@ -15,7 +15,7 @@
       overflow-x: hidden;
     }
 
-    /* Modern Tabs Navigation (Bottom Bar) */
+    /* Modern Tabs Navigation */
     .tabs {
       display: flex;
       justify-content: space-around;
@@ -134,60 +134,46 @@
       border-radius: 12px;
     }
 
-    /* Social & Contact (رجعناها زي ما كانت) */
     .social-links {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
       gap: 15px;
       margin: 20px 0;
     }
     .social-links a {
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 14px;
-      border-radius: 14px;
+      align-items: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 22px;
       background: rgba(0,0,0,0.4);
-      text-decoration: none;
       color: #fff;
-      font-size: 18px;
-      border: 1px solid rgba(255,255,255,0.1);
       transition: all 0.3s ease;
-      box-shadow: 0 0 12px rgba(0,0,0,0.5);
     }
     .social-links a:hover {
-      transform: translateY(-6px) scale(1.05);
-      background: rgba(0,229,255,0.15);
-      box-shadow: 0 0 18px #00e5ff;
+      transform: scale(1.15);
+      box-shadow: 0 0 12px #00e5ff;
     }
-    .social-links i { font-size: 22px; margin-left: 8px; }
-    .whatsapp i { color: #25d366; }
-    .facebook i { color: #1877f2; }
-    .instagram i { color: #e4405f; }
-    .tiktok i { color: #fff; }
-    .snapchat i { color: #fffc00; }
+    .social-links .whatsapp { background: #25D366; }
+    .social-links .facebook { background: #1877F2; }
+    .social-links .instagram { background: #E4405F; }
+    .social-links .tiktok { background: #000; }
+    .social-links .snapchat { background: #FFFC00; color: #000; }
 
     .phone-card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(0,229,255,0.3);
-      padding: 14px 20px;
-      border-radius: 16px;
-      display: flex;
+      padding: 10px 14px;
+      border-radius: 10px;
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      margin-bottom: 15px;
-      box-shadow: 0 0 18px rgba(0,229,255,0.15);
-      transition: all 0.3s ease;
-      direction: ltr;
+      font-size: 17px;
+      margin: 5px;
     }
-    .phone-card i { 
-      margin-right: 10px;
-      margin-left: 0; 
-      color: #00e5ff; 
-      text-shadow: 0 0 12px #00e5ff; 
-    }
-    .phone-card span { color: #fff; font-weight: 500; }
+    .phone-card i { margin-right: 6px; color: #00e5ff; }
 
     footer {
       background: rgba(0,0,20,0.9);
@@ -227,7 +213,15 @@
       <h3>📍 العنوان</h3>
       <p>ك 39 طريق إسكندرية – مطروح، بحري<br>بعد قرية كرير لاجون – برج العرب</p>
       <div class="map-box">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18..." allowfullscreen></iframe>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d138.20752498196093!2d29.5833537!3d30.9848689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDU5JzA1LjUiTiAyOcKwMzUnMDAuMSJF!5e1!3m2!1sar!2seg!4v1727400000000"
+          width="100%" 
+          height="280" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
   </div>
@@ -250,15 +244,15 @@
     <div class="social-contact-box">
       <h3>تواصل معنا</h3>
       <div class="social-links">
-        <a class="whatsapp" href="https://wa.me/201026908041" target="_blank"><i class="fab fa-whatsapp"></i>واتساب</a>
-        <a class="facebook" href="https://facebook.com/profile.php?id=61581127320934" target="_blank"><i class="fab fa-facebook"></i>فيسبوك</a>
-        <a class="instagram" href="https://instagram.com/aqua.king.alex" target="_blank"><i class="fab fa-instagram"></i>انستجرام</a>
-        <a class="tiktok" href="https://tiktok.com/@aqua.king45" target="_blank"><i class="fab fa-tiktok"></i>تيك توك</a>
-        <a class="snapchat" href="https://snapchat.com/@aqua_king2025" target="_blank"><i class="fab fa-snapchat"></i>سناب شات</a>
+        <a class="whatsapp" href="https://wa.me/201026908041"><i class="fab fa-whatsapp"></i></a>
+        <a class="facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+        <a class="instagram" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+        <a class="tiktok" href="https://tiktok.com"><i class="fab fa-tiktok"></i></a>
+        <a class="snapchat" href="https://snapchat.com"><i class="fab fa-snapchat"></i></a>
       </div>
-      <div class="phones">
-        <div class="phone-card"><i class="fas fa-phone"></i><span>01026908041</span></div>
-        <div class="phone-card"><i class="fas fa-phone"></i><span>01062701079</span></div>
+      <div>
+        <div class="phone-card"><i class="fas fa-phone"></i>01026908041</div>
+        <div class="phone-card"><i class="fas fa-phone"></i>01062701079</div>
       </div>
     </div>
   </div>
